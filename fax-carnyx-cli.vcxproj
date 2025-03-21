@@ -162,7 +162,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>glfw3;raylib;%(AdditionalDependencies)</AdditionalDependencies>
       <EmRun>true</EmRun>
-      <AdditionalOptions>-sASYNCIFY -o3 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-sASYNCIFY -o3 --preload-file resources %(AdditionalOptions)</AdditionalOptions>
       <AdditionalLinkDirectories>$(LibraryPath);%(AdditionalLinkDirectories)</AdditionalLinkDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -201,7 +201,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>glfw3;raylib;%(AdditionalDependencies)</AdditionalDependencies>
       <EmRun>true</EmRun>
-      <AdditionalOptions>-sASYNCIFY -o3 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-sASYNCIFY -o3 --preload-file resources %(AdditionalOptions)</AdditionalOptions>
       <AdditionalLinkDirectories>$(LibraryPath);%(AdditionalLinkDirectories)</AdditionalLinkDirectories>
     </Link>
   </ItemDefinitionGroup>
