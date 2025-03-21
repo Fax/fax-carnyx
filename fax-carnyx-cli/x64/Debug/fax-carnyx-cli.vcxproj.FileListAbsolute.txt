@@ -1,0 +1,3 @@
+G:\projects\cpp\fax-carnyx\fax-carnyx-cli\x64\Debug\raylib.dll
+G:\projects\cpp\fax-carnyx\fax-carnyx-cli\x64\Debug\glfw3.dll
+G:\projects\cpp\fax-carnyx\fax-carnyx-cli\fax-carnyx-cli\x64\Debug\fax-carn.5ECD4C2D.Up2Date
