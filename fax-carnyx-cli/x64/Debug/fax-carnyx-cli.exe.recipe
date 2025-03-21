@@ -5,7 +5,23 @@
       <FullPath>G:\projects\cpp\fax-carnyx\fax-carnyx-cli\x64\Debug\fax-carnyx-cli.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
-  <ContentFiles />
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>G:\projects\cpp\fax-carnyx\fax-carnyx-cli\Resources\ball.png</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>G:\projects\cpp\fax-carnyx\fax-carnyx-cli\Resources\bat.png</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>G:\projects\cpp\fax-carnyx\fax-carnyx-cli\Resources\breakout_ball_transparent.png</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>G:\projects\cpp\fax-carnyx\fax-carnyx-cli\Resources\breakout_transparent.png</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>G:\projects\cpp\fax-carnyx\fax-carnyx-cli\Resources\brick.png</FullPath>
+    </ContentFile>
+  </ContentFiles>
   <SatelliteDlls />
   <NonRecipeFileRefs />
 </Project>

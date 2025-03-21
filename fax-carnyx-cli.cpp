@@ -1,6 +1,9 @@
 // fax-carnyx-cli.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+#if defined(Emscripten)
+#include <emscripten.h>
+#endif
 #include <iostream>
 #include <vector>
 #include <raylib.h>
@@ -38,11 +41,41 @@ public:
 	int bounces = 0;
 	float currentAngle = 0.0;
 };
+
+
+struct Sprites {
+	Texture2D brick;
+	Rectangle brickRect;
+	Texture2D player;
+	Rectangle playerRect;
+	Texture2D ball;
+	Rectangle ballRect;
+
+	void init() {
+		brick = LoadTexture("resources/brick.png");
+		brickRect = { 0.0f, 0.0f, (float)brick.width, (float)brick.height };
+		player = LoadTexture("resources/bat.png");
+		playerRect = { 0.0f, 0.0f, (float)player.width, (float)player.height };
+
+		ball = LoadTexture("resources/ball.png");
+		ballRect = { 0.0f, 0.0f, (float)ball.width, (float)ball.height };
+
+	}
+};
 Vector2 AngleToVector(float angleDegrees) {
 
 	float angleRadians = DEG2RAD * angleDegrees;
 	return Vector2{ cosf(angleRadians), sinf(angleRadians) };
 }
+
+void AddScore(GameScore& score) {
+	score.score++;
+}
+void AddBounce(GameScore& score) {
+	score.bounces++;
+}
+
+
 int main()
 {
 	std::random_device rd;
@@ -102,6 +135,9 @@ int main()
 	Player player;
 	player.position = { (w / 2) - player.size.x / 2, (h / 8 * 7) - player.size.y / 2 };
 
+	Sprites sprites;
+	sprites.init();
+
 
 
 
@@ -114,18 +150,19 @@ int main()
 		for (const Brick& brick : bricks) {
 			if (brick.alive)
 			{
-				DrawRectangleV(brick.position, scaledBrick, brick.color);
+				DrawTexturePro(sprites.brick, sprites.brickRect, { brick.position.x,brick.position.y,scaledBrick.x,scaledBrick.y }, Vector2Zero(), 0, brick.color);
+				//DrawRectangleV(brick.position, scaledBrick, brick.color);
 			}
 		}
 		for (Ball& ball : balls) {
 
 			if ((ball.position.x < 5 && ball.velocity.x < 0) || ball.position.x > w - 5) {
 				ball.velocity.x *= -1;
-				score.bounces++;
+				AddBounce(score);
 			}
 			if ((ball.position.y < 5 && ball.velocity.y < 0) || ball.position.y > h - 5) {
 				ball.velocity.y *= -1;
-				score.bounces++;
+				AddBounce(score);
 			}
 
 			if (ball.position.y > h - 20) {
@@ -153,7 +190,8 @@ int main()
 
 					// bounce
 					ball.velocity.y *= -1;
-					score.bounces++;
+					AddBounce(score);
+
 				}
 
 				// first of all, we can hit the boxes if we are in the top area of hte screen
@@ -171,6 +209,7 @@ int main()
 						// if the center is in this rectangle + radius, we have a collision
 						if (CheckCollisionCircleRec(ball.position, 5.0, r)) {
 							brick.life--;
+							AddScore(score);
 
 							if (CheckCollisionCircleLine(ball.position, 5.0, brick.position, { brick.position.x, brick.position.y + scaledBrick.y })) {
 								ball.velocity.x *= -1;
@@ -184,23 +223,19 @@ int main()
 							else {
 								ball.velocity.x *= -1;
 							}
-
-
 						}
-
-
 						if (brick.life == 0) {
 							brick.alive = false;
 						}
-
 					}
 				}
 				ball.position.x += dt * ball.velocity.x;
 				ball.position.y += dt * ball.velocity.y;
 			}
 
+			DrawCircleV(ball.position, 10, GREEN);
+			DrawTexturePro(sprites.ball, sprites.ballRect, { ball.position.x - 5,ball.position.y - 5,10,10 }, Vector2Zero(), 0, ball.color);
 
-			DrawCircleV(ball.position, 10, ball.color);
 		}
 
 		// check user position
@@ -212,14 +247,17 @@ int main()
 			player.position.x -= dt * player.speed;
 		}
 
+		DrawTexturePro(sprites.player, sprites.playerRect, { player.position.x,player.position.y ,player.size.x,player.size.y }, Vector2Zero(), 0, player.color);
 
-		DrawRectangleV(player.position, player.size, player.color);
+		//DrawRectangleV(player.position, player.size, player.color);
 		DrawText(TextFormat("B: %i L: %i S: %i A:%f", score.bounces, score.losses, score.score, score.currentAngle), 300, 10, 35, BLACK);
 
 		DrawFPS(10, 10);
 		EndDrawing();
 	}
-
+	UnloadTexture(sprites.brick);
+	UnloadTexture(sprites.player);
+	UnloadTexture(sprites.ball);
 	CloseWindow();
 }
 

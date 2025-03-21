@@ -1,22 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35806.99 d17.13
+VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fax-carnyx-cli", "fax-carnyx-cli.vcxproj", "{719AF5A1-E3B7-4900-95F6-59BB82BC4441}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Emscripten = Debug|Emscripten
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|Emscripten = Release|Emscripten
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{719AF5A1-E3B7-4900-95F6-59BB82BC4441}.Debug|Emscripten.ActiveCfg = Debug|Emscripten
+		{719AF5A1-E3B7-4900-95F6-59BB82BC4441}.Debug|Emscripten.Build.0 = Debug|Emscripten
 		{719AF5A1-E3B7-4900-95F6-59BB82BC4441}.Debug|x64.ActiveCfg = Debug|x64
 		{719AF5A1-E3B7-4900-95F6-59BB82BC4441}.Debug|x64.Build.0 = Debug|x64
 		{719AF5A1-E3B7-4900-95F6-59BB82BC4441}.Debug|x86.ActiveCfg = Debug|Win32
 		{719AF5A1-E3B7-4900-95F6-59BB82BC4441}.Debug|x86.Build.0 = Debug|Win32
+		{719AF5A1-E3B7-4900-95F6-59BB82BC4441}.Release|Emscripten.ActiveCfg = Release|Emscripten
+		{719AF5A1-E3B7-4900-95F6-59BB82BC4441}.Release|Emscripten.Build.0 = Release|Emscripten
 		{719AF5A1-E3B7-4900-95F6-59BB82BC4441}.Release|x64.ActiveCfg = Release|x64
 		{719AF5A1-E3B7-4900-95F6-59BB82BC4441}.Release|x64.Build.0 = Release|x64
 		{719AF5A1-E3B7-4900-95F6-59BB82BC4441}.Release|x86.ActiveCfg = Release|Win32

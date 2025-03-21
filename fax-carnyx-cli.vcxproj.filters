@@ -19,4 +19,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\ball.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\bat.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\breakout_ball_transparent.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\breakout_transparent.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\brick.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
