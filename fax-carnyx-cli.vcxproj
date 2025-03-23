@@ -207,6 +207,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="fax-carnyx-cli.cpp" />
+    <ClCompile Include="Loop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\ball.png">
@@ -224,6 +225,11 @@
     <Image Include="Resources\brick.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Entities.h" />
+    <ClInclude Include="Loop.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
