@@ -5,6 +5,10 @@
 /x64/
 .vs
 
+
+Emscripten
+fax-carnyx-cli
+
 # Visual Studio
 *.sdf
 *.suo
